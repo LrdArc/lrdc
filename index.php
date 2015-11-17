@@ -28,9 +28,11 @@ $_csc->port = $_SERVER['SERVER_PORT'];
 $_csc->get_uri();
 
 
+/* Session doesn't count on non-browser */
+if ( ! isset( $argc ) && ! $_csc->is_static ) session_start();
+
 /* Initiate session & DB */
-if ( ! isset( $argc ) && ! $csc->is_static ) session_start(); // session doesn't count on non-browser
-if ( ! $csc->is_static ) {
+if ( ! $_csc->is_static ) {
 	$_csc->redirect_to_slash();
 	require_once( 'lib/config.php' );
 	require_once( 'lib/csc_pdo.php' );
@@ -44,6 +46,6 @@ if ( ! $csc->is_static ) {
 
 
 /* Main Category */
-if ( ! $_csc->uri[1] || $_csc->uri[1] == 'index' ) include( 'view/index.php' );
-elseif ( $_csc->is_static ) include( 'lib/static.php' );
+if ( ! $_csc->uri[1] || $_csc->uri[1] == 'index' ) include( 'views/index.php' );
+elseif ( $_csc->is_static ) include( 'lib/csc_static.php' );
 else include( 'lib/controller.php' );
