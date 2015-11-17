@@ -1,4 +1,14 @@
 <?php
+/**
+ * Lrdc Web Framework
+ * Copyright (C) 2015 Cscpro Labs
+ * https://www.cscpro.org/labs/framework/
+ *
+ * This page controlled the static pages,
+ * somehow it's not really a static page.
+ *
+ */
+
 header("Pragma: cache");
 header( "Cache-Control: public, max-age=604800" );
 
@@ -17,10 +27,12 @@ function pfx($t,$i) {
 
 
 // When the MAD begins..
-if ( ! file_exists( $files ) ) echo $files;//header( 'Location: /' );
+if ( ! file_exists( $files ) ) header( 'Location: /' );
+
 elseif ( in_array( $_csc->format, array( 'png', 'jpg', 'jpeg', 'gif' ) ) ) {
 	header( 'Content-type: image/' . $_csc->format );
 	readfile( $files );
+
 
 } elseif ( in_array( $_csc->format, array( 'css', 'js' ) ) ) {
 	$bc = file_get_contents( $files );
@@ -45,16 +57,25 @@ elseif ( in_array( $_csc->format, array( 'png', 'jpg', 'jpeg', 'gif' ) ) ) {
 
 	} else header( 'Content-type: text/javascript' );
 
-	$r = preg_replace( '#/\*.*?\*/#s', '', $bc ); // Remove comments
-	$r = preg_replace( '/\s*([{}|:;,])\s+/', '$1', $r ); // Remove whitespace
-	$r = preg_replace( '/\s\s+(.*)/', '$1', $r ); // Remove trailing whitespace at the start
-	$r = str_replace( ';}', '}', $r ); // Remove unnecessary ;'s
+	// Remove comments
+	$r = preg_replace( '#/\*.*?\*/#s', '', $bc );
+
+	// Remove whitespace
+	$r = preg_replace( '/\s*([{}|:;,])\s+/', '$1', $r );
+
+	// Remove trailing whitespace at the start
+	$r = preg_replace( '/\s\s+(.*)/', '$1', $r );
+
+	// Remove unnecessary ;'s
+	$r = str_replace( ';}', '}', $r );
+
 	echo ( $xp ? '/*' . $xp . '*/' . "\n" : '' ) . $r;
-//	echo $bc;
+
 
 } elseif ( in_array( $_csc->format, array( 'ttf', 'eot', 'otf', 'woff' ) ) ) {
 	header( 'Content-type: application/font-' . $_csc->format );	
 	readfile( $files );
+
 
 } else {
 	header( 'Content-type: application/' . $_csc->format );	
