@@ -1,5 +1,4 @@
 # Lrdc Framework
-RewriteEngine On
 RewriteRule . index.php [L]
 
 # Htaccess Protection

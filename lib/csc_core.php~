@@ -40,11 +40,11 @@ class csc_core {
 	}
 
 	public function redirect_to_slash() {
-		if ( $this->uri[1] && ! $this->format &&
-			substr( $this->syntax, -1 ) != '/' &&
-			! strpos( $this->syntax, '+' ) 
+		if ( $_csc->uri[1] && ! $_csc->format &&
+			substr( $_csc->syntax, -1 ) != '/' &&
+			! strpos( $_csc->syntax, '+' ) 
 		) {
-			header( "Location: $this->syntax/" );
+			header( "Location: $_csc->syntax/" );
 			exit;
 		}
 	}
