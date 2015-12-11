@@ -12,7 +12,8 @@
 header("Pragma: cache");
 header( "Cache-Control: public, max-age=604800" );
 
-$files = 'static' . str_replace( '%20', ' ', $_csc->syntax ) . '.' . $_csc->format;
+$syntax = implode( '/', $_csc->uri );
+$files = 'static' . str_replace( '%20', ' ', $syntax ) . '.' . $_csc->format;
 
 // Functions
 function pfx($t,$i) {
