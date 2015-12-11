@@ -70,7 +70,8 @@ elseif ( in_array( $_csc->format, array( 'png', 'jpg', 'jpeg', 'gif' ) ) ) {
 	// Remove unnecessary ;'s
 	$r = str_replace( ';}', '}', $r );
 
-	echo ( $xp ? '/*' . $xp . '*/' . "\n" : '' ) . $r;
+	//echo ( $xp ? '/*' . $xp . '*/' . "\n" : '' ) . $r;
+	echo $bc;
 
 
 } elseif ( in_array( $_csc->format, array( 'ttf', 'eot', 'otf', 'woff' ) ) ) {
