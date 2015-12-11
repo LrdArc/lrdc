@@ -10,6 +10,7 @@ class csc_core {
 
 	public $allowed = array( 'js', 'css', 'jpg', 'png', 'gif', 'jpeg' );
 	public $theuri;
+	public $config;
 	public $port = 80;
 	
 	public function get_uri() {
@@ -24,7 +25,10 @@ class csc_core {
 		$this->syntax = ( $this->format ) ? str_replace( '.' . $this->format, '', $sx[0] ) : $sx[0];
 
 		// Explode every "/" on the url
-		$this->uri = explode( '/', $this->syntax );
+		if ( $this->config['basepath'] ) $this->toexplode = str_replace( $this->config['basepath'] . '/', '', $this->syntax );
+		else $this->toexplode = $this->syntax;
+		$this->uri = explode( '/', $this->toexplode );
+		unset( $this->toexplode );
 
 		// Checking is it https
 		$this->ssl = ( $this->port == 443 ) ? true : false;

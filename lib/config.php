@@ -15,6 +15,16 @@ error_reporting( E_ALL & ~E_NOTICE );
 /* Default timezone */
 date_default_timezone_set( 'Asia/Jakarta' );
 
+
+/* Basepath
+ * Uncomment these line if your basepath not in domain root
+ * for example your site located on localhost/lrdc-fw/
+ * then you need to set basepath to "lrdc-fw"
+ * so you need to add: $_config['basepath'] = 'lrdc-fw';
+ */
+//$_config['basepath'] = '';
+
+
 /* Database config*/
 $_db = new stdClass;
 $_db->name = ''; // YOUR DB name HERE
