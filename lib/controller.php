@@ -14,6 +14,6 @@ if ( $_csc->uri[1] == 'csc' ) {
 	include( 'index.php' );
 }
 
-elseif ( file_exists( 'views/' . $csc->uri[1] . '.php' ) ) include( 'views/' . $csc->uri[1] . '.php' );
+elseif ( file_exists( 'views/' . $_csc->uri[1] . '.php' ) ) include( 'views/' . $_csc->uri[1] . '.php' );
 
 else echo '404';
