@@ -9,6 +9,7 @@ class curl {
 	public $code;
 	public $url;
 	public $info;
+	public $bc;
 
 	public function __construct( $redirs = true, $cookies = true, $useragent=true ) {
 		$this->useragent = ( $useragent ) ? $useragent : $this->useragent;
@@ -60,4 +61,17 @@ class curl {
 		curl_close( $this->handle );
 		return $this->data;
 	}
+	
+	/* Explode html */
+	public function xp( $p, $t, $j=1, $o=null ) {
+		if ( $o==null ) $o = $this->bc;
+		if ( ! is_numeric( $j ) ) {
+			$o = $j;
+			$j = 1;
+		}
+		$xp = explode( $p, $o );
+		$r = explode( $t, $xp[$j] );
+		return $r[0];
+	}
+
 }
