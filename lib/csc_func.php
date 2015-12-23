@@ -84,3 +84,12 @@ function endexplode( $s, $i ) {
 	$o = explode( $s, $i );
 	return end( $o );
 }
+
+
+/* Useful for relative url path */
+function redirect( $i='/' ) {
+	global $_config;
+	$i = ltrim( $i, '/' );
+	$r = $_config['basepath'] ? $_config['basepath'] . '/' : '';
+	header( 'Location: /' . $r . $i );
+}
