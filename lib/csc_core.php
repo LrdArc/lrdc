@@ -53,4 +53,9 @@ class csc_core {
 		}
 	}
 
+	public function get_input( $i=2 ) {
+		if ( $this->uri[$i][0] == '+' ) return substr( $this->uri[$i], 1 );
+		else return false;
+	}
+
 }
