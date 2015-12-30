@@ -91,6 +91,6 @@ function redirect( $i=null ) {
 	global $_csc;
 	$i = $i == '/' ?: ltrim( $i, '/' );
 	$r = $_csc->config['basepath'] ? $_csc->config['basepath'] . '/' : '';
-	$r = $i == null ?: '/' . $r . $i;
+	$r = $i == null ? '' : '/' . $r . $i;
 	header( 'Location: ' . $r );
 }
