@@ -58,4 +58,7 @@ class csc_core {
 		else return false;
 	}
 
+	public function dirpath() {
+		return $this->config['basepath'];
+	}
 }
