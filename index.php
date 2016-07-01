@@ -1,7 +1,7 @@
 <?php
 /**
  * Lrdc Web Framework
- * Copyright (C) 2015 Cscpro Labs
+ * Copyright (C) 2016 Cscpro Labs
  * https://www.cscpro.org/labs/framework/
  *
  * This program is free software; you can redistribute it and/or modify
@@ -17,7 +17,7 @@
  */
 
 /* Include core class library */
-require_once( 'lib/config.php' );
+require_once( 'config/config.php' );
 require_once( $_config['lib'] . 'csc_core.php' );
 require_once( $_config['lib'] . 'csc_func.php' );
 
@@ -45,13 +45,13 @@ if ( ! $_csc->is_static ) {
 		unset( $_db );
 	}
 
-	require_once( 'lib/auth.php' );
+	require_once( 'config/auth.php' );
 }
 
 
 /* Main Category */
 if ( ! $_csc->uri[1] || $_csc->uri[1] == 'index' ) include( 'views/index.php' );
 elseif ( $_csc->is_static ) include( 'static/index.php' );
-else include( 'lib/controller.php' );
+else include( 'config/controller.php' );
 
 // END of code
