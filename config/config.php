@@ -1,7 +1,6 @@
 <?php
 /**
  * Lrdc Web Framework
- * Copyright (C) 2015 Cscpro Labs
  * https://www.cscpro.org/labs/framework/
  *
  * Set these variables to suit your needs
@@ -25,7 +24,7 @@ date_default_timezone_set( 'Asia/Jakarta' );
 //$_config['basepath'] = '';
 
 /* Library path */
-$_config['lib'] = 'lib/';
+$_config['lib'] = 'library';
 
 /* Database config*/
 $_db = new stdClass;
