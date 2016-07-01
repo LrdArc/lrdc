@@ -32,3 +32,7 @@ $_db->name = ''; // YOUR DB name HERE
 $_db->user = ''; // YOUR DB username HERE
 $_db->pass = ''; // YOUR DB password HERE
 
+/* Autocompress for static page
+ * Default set to false
+ */
+$_csc->autocompress = false;
