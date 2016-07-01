@@ -17,9 +17,9 @@
  */
 
 /* Include core class library */
-require_once( 'lib/csc_core.php' );
-require_once( 'lib/csc_func.php' );
 require_once( 'lib/config.php' );
+require_once( $_config['lib'] . 'csc_core.php' );
+require_once( $_config['lib'] . 'csc_func.php' );
 
 
 /* Let the MAD begins */
@@ -37,7 +37,7 @@ if ( ! isset( $argc ) && ! $_csc->is_static ) session_start();
 /* Initiate session & DB */
 if ( ! $_csc->is_static ) {
 	$_csc->redirect_to_slash();
-	require_once( 'lib/csc_pdo.php' );
+	require_once( $_csc->config['lib'] . 'csc_pdo.php' );
 
 	if ( $_db ) {
 		$db = new csc_pdo( $_db->user, $_db->pass, $_db->name );
