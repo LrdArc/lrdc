@@ -31,6 +31,7 @@ $_db = new stdClass;
 $_db->name = ''; // YOUR DB name HERE
 $_db->user = ''; // YOUR DB username HERE
 $_db->pass = ''; // YOUR DB password HERE
+$_db->pfx = ''; // YOUR DB prefix HERE [optional]
 
 /* Autocompress for static page
  * Default set to false
