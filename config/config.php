@@ -35,4 +35,4 @@ $_db->pass = ''; // YOUR DB password HERE
 /* Autocompress for static page
  * Default set to false
  */
-$_csc->autocompress = false;
+$_config->autocompress = false;
