@@ -1,7 +1,6 @@
 <?php
 /**
  * Lrdc Web Framework
- * Copyright (C) 2015 Cscpro Labs
  * https://www.cscpro.org/labs/framework/
  *
  * This page controlled the static pages,
@@ -70,8 +69,8 @@ elseif ( in_array( $_csc->format, array( 'png', 'jpg', 'jpeg', 'gif' ) ) ) {
 	// Remove unnecessary ;'s
 	$r = str_replace( ';}', '}', $r );
 
-	//echo ( $xp ? '/*' . $xp . '*/' . "\n" : '' ) . $r;
-	echo $bc;
+	if ( $_csc->compression ) echo ( $xp ? '/*' . $xp . '*/' . "\n" : '' ) . $r;
+	else echo $bc;
 
 
 } elseif ( in_array( $_csc->format, array( 'ttf', 'eot', 'otf', 'woff' ) ) ) {
