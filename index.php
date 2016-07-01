@@ -1,7 +1,6 @@
 <?php
 /**
  * Lrdc Web Framework
- * Copyright (C) 2016 Cscpro Labs
  * https://www.cscpro.org/labs/framework/
  *
  * This program is free software; you can redistribute it and/or modify
