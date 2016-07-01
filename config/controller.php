@@ -1,7 +1,6 @@
 <?php
 /**
  * Lrdc Web Framework
- * Copyright (C) 2015 Cscpro Labs
  * https://www.cscpro.org/labs/framework/
  *
  * This is the Controller page.
