@@ -69,7 +69,7 @@ elseif ( in_array( $_csc->format, array( 'png', 'jpg', 'jpeg', 'gif' ) ) ) {
 	// Remove unnecessary ;'s
 	$r = str_replace( ';}', '}', $r );
 
-	if ( $_csc->compression ) echo ( $xp ? '/*' . $xp . '*/' . "\n" : '' ) . $r;
+	if ( $_csc->config['autocompress'] ) echo ( $xp ? '/*' . $xp . '*/' . "\n" : '' ) . $r;
 	else echo $bc;
 
 
