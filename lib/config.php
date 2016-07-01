@@ -24,6 +24,8 @@ date_default_timezone_set( 'Asia/Jakarta' );
  */
 //$_config['basepath'] = '';
 
+/* Library path */
+$_config['lib'] = 'lib/';
 
 /* Database config*/
 $_db = new stdClass;
