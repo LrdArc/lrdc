@@ -41,7 +41,7 @@ if ( ! $_csc->is_static ) {
 
 	if ( $_db ) {
 		$db = new csc_pdo( $_db->user, $_db->pass, $_db->name );
-		$db->pfx = '';
+		$db->pfx = $_db->pfx;
 		unset( $_db );
 	}
 
