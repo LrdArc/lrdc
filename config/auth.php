@@ -8,6 +8,8 @@
  *
  */
 
+/* You may add custom function here */
+
 
 /* Uncomment these line to enable auth
  * and modify it to suit your needs
