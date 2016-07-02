@@ -1,7 +1,6 @@
 <?php
 /**
  * Lrdc Web Framework
- * Copyright (C) 2015 Cscpro Labs
  * https://www.cscpro.org/labs/framework/
  *
  */
@@ -34,7 +33,7 @@ class csc_core {
 		$this->ssl = ( $this->port == 443 ) ? true : false;
 
 		// Checking is it static files
-		$this->is_static = in_array( $this->format, $this->allowed ) ? true : false;
+		$this->is_static = in_array( strtolower( $this->format ), $this->allowed ) ? true : false;
 
 		if ( strpos( $this->uri[1], '_' ) ) {
 			$opt = explode( '_', $this->uri[1] );
