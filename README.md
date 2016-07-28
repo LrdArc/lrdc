@@ -5,5 +5,5 @@ Web Framework created by Cscpro Labs
 - Place any static file on "static", the html on "views" but using .php extension.
 - You just need to access with file's name to open it on browser.
 - For example, you have about.php placed on "views" in your localhost, open "localhost/about/" on your browser.
-- Or you can make your custom url on "lib/controller.php"
-- You need to edit "lib/config.php" on your own.
+- Or you can make your custom url on "config/controller.php"
+- You need to edit "config/config.php" on your own.
