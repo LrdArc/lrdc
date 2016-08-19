@@ -52,11 +52,13 @@ class csc_pdo {
 		$dsn = 'mysql:host=localhost;charset=utf8' . $db_name;
 		$options = array(
 			PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+			PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING
 		);
 
 		try {
 			$this->dbh = new PDO( $dsn, $this->db_user, $this->db_pass, $options );
 		} catch ( PDOException $e ) {
+			echo 'Connection failed: ' . $e->getMessage();
 			return false;
 		}
 	}
@@ -108,11 +110,16 @@ class csc_pdo {
 
 	// Insert Query
 	public function i ( $table, $field, $array=null ) {
+		$opt = explode( ',', $field );
+		unset( $field );
+		foreach ( $opt as $opts ) $fields[] = '`' . trim( $opts, '`' ) . '`';
+		$field = implode( ',', $fields );
+
 		$array = ( ! is_array( $array ) && $array ) ? array( $array ) : $array;
 		for ( $x=1; $x<=count( $array ); $x++ ) $f[] = '?';
 		$val = implode( ',', $f );
 		$table = $this->get_table( $table );
-		$sth = $this->dbh->prepare( "INSERT INTO $table ($field) VALUES ($val)" );
+		$sth = $this->dbh->prepare( "INSERT INTO `$table` ($field) VALUES ($val)" );
 		$sth->execute( $array );
 		return $this->dbh->lastInsertId();
 	}
@@ -123,6 +130,7 @@ class csc_pdo {
 		$table = $this->get_table( $table );
 		$sth = $this->dbh->prepare( "UPDATE $table $options" );
 		$sth->execute( $array );
+		return "UPDATE $table $options";
 	}
 
 	// Delete Query
