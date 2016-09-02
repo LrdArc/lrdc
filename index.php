@@ -38,7 +38,7 @@ if ( ! $_csc->is_static ) {
 	$_csc->redirect_to_slash();
 	require_once( $_csc->config['lib'] . '/csc_pdo.php' );
 
-	if ( $_db ) {
+	if ( $_db->name ) {
 		$db = new csc_pdo( $_db->user, $_db->pass, $_db->name );
 		$db->pfx = $_db->pfx;
 		unset( $_db );
