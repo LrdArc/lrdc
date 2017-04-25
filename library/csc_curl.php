@@ -70,8 +70,8 @@ class curl {
 			$j = 1;
 		}
 		$xp = explode( $p, $o );
-		$r = explode( $t, $xp[$j] );
-		return $r[0];
+		$r = isset( $xp[$j] ) ? explode( $t, $xp[$j] )[0] : null;
+		return $r;
 	}
 
 }
