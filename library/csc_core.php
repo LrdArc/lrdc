@@ -18,10 +18,10 @@ class csc_core {
 		$sx = explode( '?', $this->theuri );
 
 		// Get the file type (last ".")
-		$this->format = strpos( $sx[0], '.' ) ? endexplode( '.', $sx[0] ) : false;
+		$this->format = strpos( endexplode( '/', $sx[0] ), '.' ) ? endexplode( '.', $sx[0] ) : false;
 
 		// The url without extension
-		$this->syntax = ( $this->format ) ? str_replace( '.' . $this->format, '', $sx[0] ) : $sx[0];
+		$this->syntax = $this->format ? substr( $sx[0], 0, ( strlen( $this->format ) * -1 ) - 1 ) : $sx[0];
 
 		// Explode every "/" on the url
 		if ( $this->config['basepath'] ) $this->toexplode = str_replace( $this->config['basepath'] . '/', '', $this->syntax );
